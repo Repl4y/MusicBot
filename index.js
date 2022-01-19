@@ -27,23 +27,23 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  queue.metadata.send(`▶ | Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
+  queue.metadata.send(`Started shitting: **${track.title}** in **${queue.connection.channel.name}**!`);
 });
 
 player.on('trackAdd', (queue, track) => {
-  queue.metadata.send(`🎶 | Track **${track.title}** queued!`);
+  queue.metadata.send(`Track **${track.title}** shoved up my ass!`);
 });
 
 player.on('botDisconnect', queue => {
-  queue.metadata.send('❌ | I was manually disconnected from the voice channel, clearing queue!');
+  queue.metadata.send('I was thrown in the lake, so I started shitting everything out!');
 });
 
 player.on('channelEmpty', queue => {
-  queue.metadata.send('❌ | Nobody is in the voice channel, leaving...');
+  queue.metadata.send('Nobody to annoy, leaving.');
 });
 
 player.on('queueEnd', queue => {
-  queue.metadata.send('✅ | Queue finished!');
+  queue.metadata.send('Nothing to shit out anymore!');
 });
 
 client.once('ready', async () => {
@@ -73,7 +73,7 @@ client.on('messageCreate', async message => {
         message.reply('Deployed!');
       })
       .catch(err => {
-        message.reply('Could not deploy commands! Make sure the bot has the application.commands permission!');
+        message.reply('Could not deploy application.commands.');
         console.error(err);
       });
   }
@@ -91,7 +91,7 @@ client.on('interactionCreate', async interaction => {
   } catch (error) {
     console.error(error);
     interaction.followUp({
-      content: 'There was an error trying to execute that command!',
+      content: 'Error while trying to shit it out!',
     });
   }
 });

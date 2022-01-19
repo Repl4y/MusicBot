@@ -6,7 +6,7 @@ module.exports = {
   async execute(interaction, player) {
     if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
       return void interaction.reply({
-        content: 'You are not in a voice channel!',
+        content: 'Get in a channel fuckwit',
         ephemeral: true,
       });
     }
@@ -25,9 +25,9 @@ module.exports = {
     const queue = player.getQueue(interaction.guildId);
     if (!queue || !queue.playing)
       return void interaction.followUp({
-        content: '❌ | No music is being played!',
+        content: 'Nothing is being shat out rn...',
       });
     queue.destroy();
-    return void interaction.followUp({content: '🛑 | Stopped the player!'});
+    return void interaction.followUp({content: 'Stopped shitting!'});
   },
 };

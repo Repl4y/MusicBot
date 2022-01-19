@@ -16,7 +16,7 @@ module.exports = {
     try {
       if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
         return void interaction.reply({
-          content: 'You are not in a voice channel!',
+          content: 'Get in a channel fuckwit',
           ephemeral: true,
         });
       }
@@ -26,7 +26,7 @@ module.exports = {
         interaction.member.voice.channelId !== interaction.guild.me.voice.channelId
       ) {
         return void interaction.reply({
-          content: 'You are not in my voice channel!',
+          content: 'Get in a channel fuckwit',
           ephemeral: true,
         });
       }
@@ -41,7 +41,7 @@ module.exports = {
         })
         .catch(() => {});
       if (!searchResult || !searchResult.tracks.length)
-        return void interaction.followUp({content: 'No results were found!'});
+        return void interaction.followUp({content: 'Couldnt find anything to shove up my ass'});
 
       const queue = await player.createQueue(interaction.guild, {
         ytdlOptions: {
@@ -58,19 +58,19 @@ module.exports = {
       } catch {
         void player.deleteQueue(interaction.guildId);
         return void interaction.followUp({
-          content: 'Could not join your voice channel!',
+          content: 'Could not join, BING CHILLING',
         });
       }
 
       await interaction.followUp({
-        content: `⏱ | Loading your ${searchResult.playlist ? 'playlist' : 'track'}...`,
+        content: `Loading your ${searchResult.playlist ? 'playlist' : 'track'}up my ass`,
       });
       searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks[0]);
       if (!queue.playing) await queue.play();
     } catch (error) {
       console.log(error);
       interaction.followUp({
-        content: 'There was an error trying to execute that command: ' + error.message,
+        content: 'couldnt exec: ' + error.message,
       });
     }
   },
